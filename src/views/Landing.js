@@ -1,9 +1,6 @@
 import React from 'react'
-import data from '../public/item-data.json'
-import ProductDetail from './views/ProductDetailComponent'
-import '../public/normalize.css'
-import '../public/style.css'
-import './assets/scss/productDetail.scss';
+import data from '../../public/item-data.json'
+import ProductDetail from './ProductDetailComponent'
 
 const Landing = React.createClass({
   render () {

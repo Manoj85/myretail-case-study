@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './src/ClientApp.js',
+  entry: ['./src/ClientApp.js', './src/assets/scss/main.scss'],
   devtool: 'eval', // other possible options:- source-map
   output: {
     path: path.join(__dirname, '/public'),
@@ -38,8 +38,8 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader'
       },
-      {
-        test: /\.scss$/,
+      { // sass / scss loader for webpack
+        test: /\.(sass|scss)$/,
         loader: 'sass-loader'
       },
       {

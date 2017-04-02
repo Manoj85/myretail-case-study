@@ -1,7 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Match } from 'react-router'
-import Landing from './Landing'
+import Landing from './views/Landing'
+import '../public/normalize.css'
+import '../public/style.css'
+import './assets/scss/main.scss'
 
 const App = React.createClass({
   render () {
