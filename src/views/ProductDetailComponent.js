@@ -30,8 +30,6 @@ const ProductDetail = React.createClass({
       images.push(primaryImages[0].image)
     }
 
-    console.log(JSON.stringify(images))
-
     return (
       <Row className='product-detail-container'>
         <Col lg={6} md={6} sm={12}>

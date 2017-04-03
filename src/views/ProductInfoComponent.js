@@ -1,9 +1,5 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-// import Promotions from './Promotions';
-// import Quantity from '../common/Quantity';
-// import ProductHighlights from './ProductHighlights';
-// import BuyingOptions from './BuyingOptions';
 import ProductReviewComponent from './ProductReviewComponent'
 
 const {shape} = React.PropTypes

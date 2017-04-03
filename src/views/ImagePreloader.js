@@ -13,7 +13,7 @@ const ImagePreloader = React.createClass({
     onMouseOut: func,
     onMouseOver: func,
     onMouseMove: func
-  }),
+  }).isRequired,
 
   onImageLoad () {
     this.setState({
