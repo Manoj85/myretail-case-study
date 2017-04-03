@@ -2,17 +2,17 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import ProductReview from './ProductReview'
 import ProductRating from './ProductRating'
-const {shape} = React.PropTypes
+const {arrayOf, shape} = React.PropTypes
 
 const ProductReviewComponent = React.createClass({
   propTypes: {
-    reviewArr: shape({})
+    reviewArr: arrayOf(shape({}))
   },
   render () {
     const reviewArr = this.props.reviewArr || []
     const review = reviewArr[0] || {}
-    const proReview = review.Pro || {}
-    const conReview = review.Con || {}
+    const proReview = review.Pro || []
+    const conReview = review.Con || []
 
     let rating = review.consolidatedOverallRating || 0
     rating = parseInt(rating, 10) * 20

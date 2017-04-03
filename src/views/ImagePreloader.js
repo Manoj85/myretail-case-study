@@ -1,18 +1,18 @@
 import React from 'react'
-const {shape} = React.PropTypes
+const {shape, string, number, func} = React.PropTypes
 
 const ImagePreloader = React.createClass({
   propTypes: shape({
-    className: 'string',
-    src: 'string',
-    width: 'number',
-    height: 'number',
-    alt: 'string',
-    imageIndex: 'number',
-    onClick: 'func',
-    onMouseOut: shape(),
-    onMouseOver: shape(),
-    onMouseMove: shape()
+    className: string,
+    src: string,
+    width: number,
+    height: number,
+    alt: string,
+    imageIndex: number,
+    onClick: func,
+    onMouseOut: func,
+    onMouseOver: func,
+    onMouseMove: func
   }),
 
   onImageLoad () {

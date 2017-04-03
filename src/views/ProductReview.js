@@ -1,10 +1,10 @@
 import React from 'react'
 import ProductRating from './ProductRating'
-const {shape} = React.PropTypes
+const {arrayOf, shape} = React.PropTypes
 
 const ProductReview = React.createClass({
   propTypes: {
-    review: shape({})
+    review: arrayOf(shape({}))
   },
   render () {
     const reviewArray = this.props.review

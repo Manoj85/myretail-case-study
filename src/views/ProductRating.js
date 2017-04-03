@@ -1,9 +1,9 @@
 import React from 'react'
-const {shape} = React.PropTypes
+const {number} = React.PropTypes
 
 const ProductRating = React.createClass({
   propTypes: {
-    rating: shape({})
+    rating: number
   },
   render () {
     const rating = this.props.rating
