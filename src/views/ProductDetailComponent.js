@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
+import ProductInfo from './ProductInfoComponent'
 const {shape} = React.PropTypes
 
 const ProductDetail = React.createClass({
@@ -23,7 +24,7 @@ const ProductDetail = React.createClass({
           </div>
         </Col>
         <Col lg={6} md={6} sm={12} >
-          { /* <ProductInfo productData={data} /> */ }
+          { <ProductInfo productData={data} /> }
         </Col>
       </Row>
     )

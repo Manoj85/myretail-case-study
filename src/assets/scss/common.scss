@@ -1,3 +1,12 @@
+
+/* Media Queries */
+$mq-mobile-portrait	 : 320px !default;
+$mq-mobile-landscape : 480px !default;
+$mq-tablet-portrait	 : 768px !default;
+$mq-tablet-landscape : 1024px !default;
+$mq-desktop	: 1382px !default;
+
+/* Colors */
 $gray1: #D7D7D7;
 $gray2: #D3D2D2;
 $gray3: #666;
@@ -10,9 +19,3 @@ $white: #FFF;
 $black: #000;
 $gray6: #F6F5F5;
 $blue1: #06C;
-
-$mq-mobile-portrait		: 320px !default;
-$mq-mobile-landscape	: 480px !default;
-$mq-tablet-portrait		: 768px !default;
-$mq-tablet-landscape	: 1024px !default;
-$mq-desktop	: 1382px !default;
