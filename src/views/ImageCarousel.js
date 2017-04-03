@@ -1,14 +1,23 @@
 import React from 'react'
 import ImagePreloader from './ImagePreloader'
-const { shape, arrayOf } = React.PropTypes
+const { string, arrayOf } = React.PropTypes
 
 const ImageCarousel = React.createClass({
   propTypes: {
-    images: arrayOf(shape({}))
+    images: arrayOf(string)
   },
+  getInitialState () {
+    const images = this.props.images || []
+    const index = images.length - 1
+    return {
+      displayIndex: index,
+      activeIndex: 0
+    }
+  },
+
   getSliderIndex () {
     const images = this.props.images || []
-    const centreIndex = this.state.activeIndex
+    const midIndex = this.state.activeIndex
     let leftIndex = this.state.activeIndex - 1
     if (leftIndex < 0) {
       leftIndex = images.length - 1
@@ -17,7 +26,7 @@ const ImageCarousel = React.createClass({
     if (rightIndex > images.length - 1) {
       rightIndex = 0
     }
-    return { leftIndex, centreIndex, rightIndex }
+    return { leftIndex, midIndex, rightIndex }
   },
 
   leftClick () {
@@ -87,18 +96,18 @@ const ImageCarousel = React.createClass({
       const index = this.getSliderIndex()
       slider.push(<button key='leftCarousel' onClick={this.leftClick} className='slide-arrow' />)
       slider.push(<ImagePreloader onClick={this.imageClick} imageIndex={index.leftIndex} width='69' height='69' alt='' src={images[index.leftIndex]} key={index.leftIndex} />)
-      if (index.centreIndex === this.state.displayIndex) {
+      if (index.midIndex === this.state.displayIndex) {
         className = 'active-image'
       }
       slider.push(<ImagePreloader
         className={className}
         onClick={this.imageClick}
-        imageIndex={index.centreIndex}
+        imageIndex={index.midIndex}
         width='69'
         height='69'
         alt=''
-        src={images[index.centreIndex]}
-        key={index.centreIndex}
+        src={images[index.midIndex]}
+        key={index.midIndex}
             />)
       slider.push(<ImagePreloader onClick={this.imageClick} imageIndex={index.rightIndex} width='69' height='69' alt='' src={images[index.rightIndex]} key={index.rightIndex} />)
       slider.push(<button key='rightCarousel' onClick={this.rightClick} className='slide-arrow slide-right' />)
@@ -115,15 +124,9 @@ const ImageCarousel = React.createClass({
 
   render () {
     const images = this.props.images || []
-    const index = images.length - 1
     const width = '400px'
     const height = '400px'
     const slider = this.previewSlider()
-
-    this.state = {
-      displayIndex: index,
-      activeIndex: 0
-    }
 
     if (images.length > 0) {
       return (<div className='carousel-container'>

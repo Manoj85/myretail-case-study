@@ -12,12 +12,13 @@ const ProductDetail = React.createClass({
   render () {
     const data = this.props.productData
     const review = data.CustomerReview || {}
-    const images = []
+    let images = []
 
     const imagesArray = data.Images || []
     const productImages = imagesArray[0] || {}
-    const primaryImage = productImages.PrimaryImage || []
     const alternateImages = productImages.AlternateImages || []
+    const primaryImages = productImages.PrimaryImage || []
+
     if (alternateImages.length > 0) {
       alternateImages.forEach((imgObj) => {
         if (imgObj.image) {
@@ -25,9 +26,11 @@ const ProductDetail = React.createClass({
         }
       })
     }
-    if (primaryImage[0] && primaryImage[0].image) {
-      images.push(primaryImage[0].image)
+    if (primaryImages[0] && primaryImages[0].image) {
+      images.push(primaryImages[0].image)
     }
+
+    console.log(JSON.stringify(images))
 
     return (
       <Row className='product-detail-container'>
