@@ -15,7 +15,7 @@ module.exports = {
     port: 9000
   },
   resolve: {
-    extensions: ['.js', '.json', '.jsx', '.css', '.scss']
+    extensions: ['.js', '.json', '.jsx', '.css', '.scss', '.svg']
   },
   stats: {
     colors: true,
@@ -38,6 +38,10 @@ module.exports = {
         include: path.resolve(__dirname, 'src'),
         test: /\.js$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(svg)$/,
+        loader: 'svg-loader?pngScale=2'
       },
       {
         test: /\.css$/,

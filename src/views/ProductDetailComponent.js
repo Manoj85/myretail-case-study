@@ -1,6 +1,8 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import ProductInfo from './ProductInfoComponent'
+import ImageCarousel from './ImageCarousel'
+import ProductReviewComponent from './ProductReviewComponent'
 const {shape} = React.PropTypes
 
 const ProductDetail = React.createClass({
@@ -9,17 +11,32 @@ const ProductDetail = React.createClass({
   },
   render () {
     const data = this.props.productData
-    // const review = data.CustomerReview || {}
-    // const images = []
+    const review = data.CustomerReview || {}
+    const images = []
+
+    const imagesArray = data.Images || []
+    const productImages = imagesArray[0] || {}
+    const primaryImage = productImages.PrimaryImage || []
+    const alternateImages = productImages.AlternateImages || []
+    if (alternateImages.length > 0) {
+      alternateImages.forEach((imgObj) => {
+        if (imgObj.image) {
+          images.push(imgObj.image)
+        }
+      })
+    }
+    if (primaryImage[0] && primaryImage[0].image) {
+      images.push(primaryImage[0].image)
+    }
 
     return (
       <Row className='product-detail-container'>
         <Col lg={6} md={6} sm={12}>
           <div className='product-carousel'>
             <h2 className='product-title'>{data.title}</h2>
-            { /* <Carousel images={images} /> */ }
+            <ImageCarousel images={images} />
             <div className='sr-large'>
-              { /* <Review review={review} /> */ }
+              <ProductReviewComponent review={review} />
             </div>
           </div>
         </Col>

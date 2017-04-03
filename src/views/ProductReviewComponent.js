@@ -9,7 +9,7 @@ const ProductReviewComponent = React.createClass({
     reviewArr: shape({})
   },
   render () {
-    const reviewArr = this.props.reviewArr || {}
+    const reviewArr = this.props.reviewArr || []
     const review = reviewArr[0] || {}
     const proReview = review.Pro || {}
     const conReview = review.Con || {}
