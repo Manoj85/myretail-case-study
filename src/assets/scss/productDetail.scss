@@ -37,21 +37,21 @@
   }
 
   .gray-text {
-    color: @gray3;
+    color: $gray3;
     font-size: 12px;
     font-weight: normal;
   }
 
   .promotion-container {
-    border-bottom: 1px solid @gray2;
-    border-top: 1px solid @gray2;
-    color: @red1;
+    border-bottom: 1px solid $gray2;
+    border-top: 1px solid $gray2;
+    color: $red1;
     margin: 10px 0;
     padding: 10px 0;
   }
 
   .promotion-text {
-    background: url('../svg/tag.svg') no-repeat;
+    /* background: url('../svg/tag.svg') no-repeat; */
     font-size: 18px;
     padding-left: 30px;
     text-transform: lowercase;
@@ -59,7 +59,7 @@
 
   .quantity-container {
     border-radius: 4px;
-    border: 1px solid @gray2;
+    border: 1px solid $gray2;
     margin: 25px 0;
     padding: 2px;
     padding-left: 10px;
@@ -78,9 +78,9 @@
 
     button.quantity-btn {
       border-radius: 35px;
-      background-color: @gray1;
+      background-color: $gray1;
       border: none;
-      color: @white;
+      color: $white;
       font-size: 18px;
       height: 35px;
       width: 35px;
@@ -91,13 +91,13 @@
   }
 
   .returns {
-    color: @gray3;
+    color: $gray3;
     margin: 15px 0;
 
     .separator {
       display: inline-block;
       font-size: 19px;
-      border-right: 1px solid @gray2;
+      border-right: 1px solid $gray2;
       padding: 0 10px;
       padding-left: 0;
     }
@@ -112,18 +112,16 @@
 
   .highlights-header {
     margin-bottom: 25px;
-    color: @black;
+    color: $black;
   }
 
   .highlights-wrapper {
-    color: @gray3;
+    color: $gray3;
     font-size: 14px;
   }
 }
 
-@mobile: ~"only screen and (max-width: 992px)";
-@desktop: ~"only screen and (min-width: 992px)";
-@media @mobile {
+@media only screen and (max-width : $mq-mobile-landscape) {
   .sr-large {
     display: none;
   }
@@ -132,7 +130,8 @@
     display: block;
   }
 }
-@media @desktop {
+
+@media only screen and (max-width : $mq-desktop) {
   .sr-large {
     display: block;
   }

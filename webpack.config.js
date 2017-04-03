@@ -1,8 +1,9 @@
 const path = require('path')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   context: __dirname,
-  entry: ['./src/ClientApp.js', './src/assets/scss/main.scss'],
+  entry: './src/ClientApp.js',
   devtool: 'eval', // other possible options:- source-map
   output: {
     path: path.join(__dirname, '/public'),
@@ -14,7 +15,7 @@ module.exports = {
     port: 9000
   },
   resolve: {
-    extensions: ['.js', '.json', '.jsx', '.css']
+    extensions: ['.js', '.json', '.jsx', '.css', '.scss']
   },
   stats: {
     colors: true,
@@ -38,10 +39,6 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader'
       },
-      { // sass / scss loader for webpack
-        test: /\.(sass|scss)$/,
-        loader: 'sass-loader'
-      },
       {
         test: /\.css$/,
         use: [
@@ -53,7 +50,17 @@ module.exports = {
             }
           }
         ]
+      },
+      { 
+        test: /\.(sass|scss)$/,
+        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin({ // define where to save the file
+      filename: 'bundle.css',
+      allChunks: true
+    })
+  ]
 }
